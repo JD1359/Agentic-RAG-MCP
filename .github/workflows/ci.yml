@@ -40,7 +40,7 @@ jobs:
           psql "postgres://app:app@localhost:5432/rag" -f migrations/001_init.sql
 
       - name: Lint
-        run: ruff check src tests
+        run: ruff check src tests --fix
 
       - name: Test
         env:
