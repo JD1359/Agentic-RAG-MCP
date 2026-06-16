@@ -6,8 +6,7 @@ import mcp.types as types
 from agentic_rag_mcp.agentic import agentic_query
 from agentic_rag_mcp.ingestion import ingest_path
 from agentic_rag_mcp.retrieval import hybrid_search
-from agentic_rag_mcp.storage import list_collections, latest_eval
-
+from agentic_rag_mcp.storage import latest_eval, list_collections
 
 TOOL_DEFINITIONS: list[types.Tool] = [
     types.Tool(

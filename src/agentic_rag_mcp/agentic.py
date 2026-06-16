@@ -6,12 +6,12 @@ from typing import Any
 
 from agentic_rag_mcp.config import settings
 from agentic_rag_mcp.llm import call_llm
-from agentic_rag_mcp.retrieval import hybrid_search, RetrievalHit
 from agentic_rag_mcp.observability import (
-    agent_steps,
     agent_latency,
+    agent_steps,
     agent_token_cost,
 )
+from agentic_rag_mcp.retrieval import RetrievalHit, hybrid_search
 
 log = logging.getLogger(__name__)
 

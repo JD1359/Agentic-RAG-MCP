@@ -7,7 +7,6 @@ import os
 
 from fastapi import HTTPException, Request
 
-
 API_KEY_HEADER = "X-API-Key"
 
 

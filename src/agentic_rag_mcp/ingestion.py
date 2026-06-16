@@ -7,13 +7,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import tiktoken
-from bs4 import BeautifulSoup
 from markdownify import markdownify
 from pypdf import PdfReader
 
 from agentic_rag_mcp.config import settings
 from agentic_rag_mcp.embeddings import embed_texts
-from agentic_rag_mcp.storage import insert_chunks, ensure_collection
+from agentic_rag_mcp.storage import ensure_collection, insert_chunks
 
 log = logging.getLogger(__name__)
 _tokenizer = tiktoken.get_encoding("cl100k_base")
@@ -59,7 +58,7 @@ async def ingest_path(path: str, collection: str) -> IngestionResult:
                 "embedding": emb,
                 "ord": i,
             }
-            for i, (ch, emb) in enumerate(zip(chunks, embeddings))
+            for i, (ch, emb) in enumerate(zip(chunks, embeddings, strict=False))
         ]
         await insert_chunks(rows)
         total_chunks += len(rows)

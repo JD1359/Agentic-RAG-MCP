@@ -8,9 +8,9 @@ from rank_bm25 import BM25Okapi
 
 from agentic_rag_mcp.config import settings
 from agentic_rag_mcp.embeddings import embed_texts
+from agentic_rag_mcp.observability import retrieval_hits, retrieval_latency
 from agentic_rag_mcp.reranker import rerank
-from agentic_rag_mcp.storage import vector_search, fetch_collection_chunks
-from agentic_rag_mcp.observability import retrieval_latency, retrieval_hits
+from agentic_rag_mcp.storage import fetch_collection_chunks, vector_search
 
 log = logging.getLogger(__name__)
 
@@ -52,7 +52,7 @@ async def hybrid_search(
         bm25 = BM25Okapi([_tokenize(c["text"]) for c in all_chunks])
         scores = bm25.get_scores(_tokenize(query))
         bm25_ranked = sorted(
-            zip(all_chunks, scores), key=lambda x: x[1], reverse=True
+            zip(all_chunks, scores, strict=False), key=lambda x: x[1], reverse=True
         )[: settings.top_k_retrieval]
         bm25_hits = [
             (c["chunk_id"], c["text"], c["source"], float(s))

@@ -28,6 +28,6 @@ def rerank(query: str, candidates: list[dict], top_k: int) -> list[dict]:
 
     pairs = [(query, c["text"]) for c in candidates]
     scores = model.predict(pairs, show_progress_bar=False)
-    for c, s in zip(candidates, scores):
+    for c, s in zip(candidates, scores, strict=False):
         c["score"] = float(s)
     return sorted(candidates, key=lambda x: x["score"], reverse=True)[:top_k]

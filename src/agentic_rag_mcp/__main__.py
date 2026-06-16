@@ -3,7 +3,7 @@ import asyncio
 import sys
 
 from agentic_rag_mcp.config import settings
-from agentic_rag_mcp.server import run_stdio, run_sse
+from agentic_rag_mcp.server import run_sse, run_stdio
 
 
 def main() -> int:
