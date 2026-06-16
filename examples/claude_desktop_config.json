@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "agentic-rag": {
+      "command": "python",
+      "args": ["-m", "agentic_rag_mcp"],
+      "env": {
+        "POSTGRES_URL": "postgres://app:app@localhost:5432/rag",
+        "LLM_PROVIDER": "openai",
+        "OPENAI_API_KEY": "sk-your-key-here"
+      }
+    }
+  }
+}

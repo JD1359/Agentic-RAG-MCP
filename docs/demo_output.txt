@@ -1,0 +1,61 @@
+INGESTION: 4 docs -> 4 chunks in 12122 ms
+      demo: 4 docs, 4 chunks
+
+Q1: What is the difference between at-least-once and exactly-once delivery?
+A:  [chunk_id=01_distributed_systems.md:0:ba92605b0ad0] (source=C:\Users\Jayadeep\OneDrive\Desktop\agentic-rag-mcp\seed\sample_docs\01_distributed_systems.md)
+# Distributed Systems Fundamentals
+
+## At-least-once vs exactly-once delivery
+
+In any distributed messaging system, you have to choose a delivery semantic. [chunk_id=1] **At-least-once** delivery means messages will be delivered one or more times -
+duplicates are possible but messages are never lost. [chunk_id=2] **Exactly-once** delivery
+mean
+steps=1 latency=9208ms cost=$0.0000
+
+Q2: Why use a dead-letter queue?
+A:  ## Dead-letter queues (DLQ)
+
+A dead-letter queue holds messages that have failed processing beyond a
+configured retry budget. [chunk_id=1] With a DLQ, after N failed attempts the message moves to the
+dead-letter stream for manual inspection, allowing the rest of the pipeline to
+continue. [chunk_id=2] After the third failure the message is dead-lettered. [chunk_id=3]
+steps=1 latency=237ms cost=$0.0000
+
+Q3: What is Model Context Protocol and what is its default transport?
+A:  [chunk_id=02_model_context_protocol.md:0:952d9edea7cc] (source=C:\Users\Jayadeep\OneDrive\Desktop\agentic-rag-mcp\seed\sample_docs\02_model_context_protocol.md)
+# Model Context Protocol (MCP)
+
+## What is MCP? [chunk_id=1] Model Context Protocol is an open standard published by Anthropic in November
+2024 for connecting AI models to tools and data. [chunk_id=2] ## Why stdio is the right default transport
+
+The stdio transport runs the MCP server as a child process of the client
+application. [chunk_
+steps=1 latency=237ms cost=$0.0000
+
+Q4: What is hybrid retrieval and why does it beat vector-only search?
+A:  ## Hybrid retrieval
+
+Semantic search using dense vector embeddings excels at conceptual matching but
+sometimes misses exact keyword matches that traditional lexical search would
+catch. [chunk_id=1] The solution is hybrid retrieval: run both semantic search and a lexical
+search (typically BM25) and combine the results. [chunk_id=2] A vague
+description like "search docs" produces fewer correct invocations than a
+specific one like "hybrid vector and BM25 search over an ingested knowledge
+collection
+steps=1 latency=240ms cost=$0.0000
+
+Q5: What makes an agentic LLM system different from a non-agentic one?
+A:  [chunk_id=04_agentic_patterns.md:0:c02072897859] (source=C:\Users\Jayadeep\OneDrive\Desktop\agentic-rag-mcp\seed\sample_docs\04_agentic_patterns.md)
+# Agentic Patterns in LLM Applications
+
+## What makes a system agentic? [chunk_id=1] An agentic RAG system retrieves,
+inspects results, decides whether they are sufficient, and may retrieve again
+with a different query. [chunk_id=2] An agentic LLM application is one where the model decides what to do next based
+on intermediate results, rather than e
+steps=1 latency=245ms cost=$0.0000
+
+EVAL AVERAGES (5 golden samples):
+  Faithfulness:      0.65
+  Answer Relevance:  0.65
+  Context Precision: 0.57
+  Context Recall:    0.63
