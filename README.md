@@ -1,5 +1,10 @@
 # Agentic-RAG-MCP
 
+<img width="1917" height="715" alt="1" src="https://github.com/user-attachments/assets/7a66d344-feaf-4b13-b88c-67a092e6b534" />
+<img width="1917" height="826" alt="2" src="https://github.com/user-attachments/assets/88b8fbc1-edd2-4f94-80c1-619a3a6893d2" />
+<img width="1097" height="500" alt="3" src="https://github.com/user-attachments/assets/464a269d-0060-4e5b-b0b2-36508d88204a" />
+
+
 An **agentic Retrieval-Augmented Generation** server exposed via the [Model Context Protocol (MCP)](https://modelcontextprotocol.io). Plug it into Claude Desktop, Cursor, Cline, Continue, or Zed and let the model agentically search a `pgvector`-backed knowledge base over your own documents.
 
 ![Python](https://img.shields.io/badge/Python-3.11+-blue)
